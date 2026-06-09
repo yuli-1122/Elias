@@ -17,10 +17,10 @@ document.addEventListener('DOMContentLoaded', function() {
     document.addEventListener('touchstart', iniciarMusica);
     document.addEventListener('keydown', iniciarMusica);
 
-    // Verificación de errores en el archivo
+    // ✅ CORREGIDO: nombre de carpeta con tilde
     musica.addEventListener('error', function() {
         console.error("No se pudo encontrar el archivo: música/cancion.mp3");
-        alert("No se encontró el archivo de música en la carpeta 'musica'. Verifica el nombre.");
+        alert("No se encontró el archivo de música en la carpeta 'música'. Verifica el nombre.");
     });
 
     // Verificación de errores en las imágenes
