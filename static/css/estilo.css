@@ -1,0 +1,244 @@
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: #fff0f3;
+    color: #5c0a1a;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    scroll-behavior: smooth;
+}
+
+h1, h2 {
+    font-family: 'Dancing Script', cursive;
+    color: #ff4d6d;
+}
+
+.portada {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(rgba(255, 240, 243, 0.8), rgba(255, 240, 243, 0.8));
+}
+
+.corazon {
+    width: 100px;
+    height: 100px;
+    background-color: #ff4d6d;
+    display: inline-block;
+    margin: 20px;
+    clip-path: path('M50 30 C50 10 10 10 10 40 C10 70 50 90 50 90 C50 90 90 70 90 40 C90 10 50 10 50 30 Z');
+    animation: latido 1.2s infinite;
+}
+
+@keyframes latido {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+    100% { transform: scale(1); }
+}
+
+.boton {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 12px 25px;
+    background-color: #000; /* Toque de color negro que le gusta a él */
+    color: white;
+    text-decoration: none;
+    border-radius: 30px;
+    font-weight: 600;
+    transition: background 0.3s;
+}
+
+.boton:hover {
+    background-color: #333;
+}
+
+.seccion {
+    padding: 80px 20px;
+}
+
+.caja-texto {
+    max-width: 600px;
+    margin: 0 auto;
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+}
+
+.recuerdo-contenido {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 50px;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px;
+    flex-wrap: wrap; /* Para que en celulares se vea uno debajo de otro */
+}
+
+.recuerdo-contenido.reverse {
+    flex-direction: row-reverse;
+}
+
+.texto-recuerdo {
+    flex: 1;
+    min-width: 300px;
+    text-align: left;
+}
+
+.texto-recuerdo h3 {
+    font-family: 'Dancing Script', cursive;
+    font-size: 2rem;
+    color: #ff4d6d;
+}
+
+.recuerdo-contenido img {
+    width: 450px;
+    height: 450px;
+    object-fit: cover;
+    background-color: #ffd1dc; /* Color de fondo si la imagen no carga */
+    border-radius: 20px;
+    border: 8px solid white;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+}
+
+/* Estilos de Licencias */
+.caja-licencia {
+    max-width: 500px;
+    margin: 0 auto;
+    background: white;
+    padding: 30px;
+    border-radius: 20px;
+    border: 2px dashed #000; /* Borde negro para la licencia */
+    box-shadow: 0 15px 35px rgba(255, 77, 109, 0.1);
+    box-sizing: border-box; /* Evita que el cuadro se estire por el padding */
+}
+
+.caja-licencia.normal { text-align: center; }
+.caja-licencia h2 { color: #000; } /* Título en negro */
+
+.formulario {
+    text-align: left;
+}
+
+.campo {
+    margin-bottom: 20px;
+}
+
+.campo label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+
+.campo input, .campo select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ffb3c1;
+    border-radius: 10px;
+    font-family: inherit;
+}
+
+.sello {
+    margin-top: 20px;
+    font-size: 1.8rem;
+    font-family: 'Dancing Script', cursive;
+    color: #000; /* Sello en negro */
+    border: 3px solid #000;
+    display: inline-block;
+    padding: 5px 20px;
+    transform: rotate(-10deg);
+    border-radius: 10px;
+    font-weight: bold;
+}
+
+.visualizador-licencia {
+    position: relative;
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto 30px;
+    display: flex;
+    justify-content: center;
+}
+
+.img-licencia-base {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+.capa-texto-licencia {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none; /* No interfiere con el mouse */
+    color: #333;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.9rem;
+}
+
+/* Posicionamiento del texto sobre la imagen */
+/* --- AJUSTE DE COORDENADAS --- */
+
+.txt-yo { 
+    position: absolute; 
+    top: 35%;
+    left: 52%;  /* Un poquito más a la derecha */
+    font-weight: bold; 
+    color: #000; /* Letra negra */
+}
+
+.txt-duena { 
+    position: absolute; 
+    top: 64%;   /* Un poquito más arriba */
+    left: 52%;  /* Un poquito más a la derecha */
+    font-weight: bold; 
+    color: #000; /* Letra negra */
+}
+
+.txt-firma { 
+    position: absolute; 
+    bottom: 12%; 
+    left: 60%;   /* Movido más hacia la derecha */
+    font-family: 'Dancing Script', cursive; 
+    font-size: 1.4rem;
+    color: #ff0000; /* Color rojo para la firma */
+}
+
+/* Estilo para las imágenes de licencias */
+.img-licencia {
+    max-width: 100%;
+    width: 320px;
+    height: auto;
+    margin-bottom: 20px;
+    border-radius: 10px;
+}
+
+/* Animación de corazones cayendo */
+.corazon-caida {
+    position: fixed;
+    top: -50px;
+    user-select: none;
+    pointer-events: none;
+    z-index: 9999;
+    animation: caer linear forwards;
+}
+
+@keyframes caer {
+    to {
+        transform: translateY(110vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+.decoracion-corazones {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    color: #ff4d6d;
+    animation: latido 2s infinite;
+}

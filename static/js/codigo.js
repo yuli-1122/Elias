@@ -1,0 +1,74 @@
+document.addEventListener('DOMContentLoaded', function() {
+    const musica = document.getElementById('musicaFondo');
+    musica.volume = 0.5;
+
+    const iniciarMusica = () => {
+        musica.play().then(() => {
+            console.log("Música iniciada correctamente");
+            document.removeEventListener('click', iniciarMusica);
+            document.removeEventListener('touchstart', iniciarMusica);
+            document.removeEventListener('keydown', iniciarMusica);
+        }).catch(err => {
+            console.warn("El navegador bloqueó el audio. Esperando clic del usuario.");
+        });
+    };
+
+    document.addEventListener('click', iniciarMusica);
+    document.addEventListener('touchstart', iniciarMusica);
+    document.addEventListener('keydown', iniciarMusica);
+
+    // Verificación de errores en el archivo
+    musica.addEventListener('error', function() {
+        console.error("No se pudo encontrar el archivo: musica/cancion.mp3");
+        alert("No se encontró el archivo de música en la carpeta 'musica'. Verifica el nombre.");
+    });
+
+    // Verificación de errores en las imágenes
+    document.querySelectorAll('img').forEach(img => {
+        img.addEventListener('error', function() {
+            console.error("Error: No se encontró la imagen en: " + this.src);
+            this.style.backgroundColor = "#ff4d6d"; // Se pone roja si falla
+        });
+    });
+
+    // Lógica para la Licencia Interactiva
+    const inputNombre = document.getElementById('input-nombre');
+    const inputDuena = document.getElementById('input-duena');
+    const inputFirma = document.getElementById('input-firma');
+    
+    const previewNombre = document.getElementById('preview-nombre');
+    const previewDuena = document.getElementById('preview-duena');
+    const previewFirma = document.getElementById('preview-firma');
+
+    if(inputNombre) {
+        inputNombre.addEventListener('input', function(e) {
+            previewNombre.textContent = e.target.value;
+        });
+    }
+    if(inputDuena) {
+        inputDuena.addEventListener('input', function(e) {
+            previewDuena.textContent = e.target.value;
+        });
+    }
+    if(inputFirma) {
+        inputFirma.addEventListener('input', function(e) {
+            previewFirma.textContent = e.target.value;
+        });
+    }
+
+    // Lógica para la lluvia de corazones y estrellas
+    function crearElementoCaida() {
+        const el = document.createElement('div');
+        el.classList.add('corazon-caida');
+        const iconos = ['💖', '💫', '✨', '🌸', '❤️'];
+        el.innerHTML = iconos[Math.floor(Math.random() * iconos.length)];
+        el.style.left = Math.random() * 100 + 'vw';
+        el.style.animationDuration = Math.random() * 3 + 2 + 's'; // Entre 2 y 5 seg
+        el.style.opacity = Math.random();
+        el.style.fontSize = Math.random() * 20 + 15 + 'px';
+        document.body.appendChild(el);
+        setTimeout(() => el.remove(), 5000);
+    }
+
+    setInterval(crearElementoCaida, 400); // Crea uno cada 400ms
+});
