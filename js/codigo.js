@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Verificación de errores en el archivo
     musica.addEventListener('error', function() {
-        console.error("No se pudo encontrar el archivo: static/musica/cancion.mp3");
+        console.error("No se pudo encontrar el archivo: música/cancion.mp3");
         alert("No se encontró el archivo de música en la carpeta 'musica'. Verifica el nombre.");
     });
 
