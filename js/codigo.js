@@ -17,21 +17,18 @@ document.addEventListener('DOMContentLoaded', function() {
     document.addEventListener('touchstart', iniciarMusica);
     document.addEventListener('keydown', iniciarMusica);
 
-    // ✅ CORREGIDO: nombre de carpeta con tilde
     musica.addEventListener('error', function() {
         console.error("No se pudo encontrar el archivo: música/cancion.mp3");
         alert("No se encontró el archivo de música en la carpeta 'música'. Verifica el nombre.");
     });
 
-    // Verificación de errores en las imágenes
     document.querySelectorAll('img').forEach(img => {
         img.addEventListener('error', function() {
             console.error("Error: No se encontró la imagen en: " + this.src);
-            this.style.backgroundColor = "#ff4d6d"; // Se pone roja si falla
+            this.style.backgroundColor = "#ff4d6d";
         });
     });
 
-    // Lógica para la Licencia Interactiva
     const inputNombre = document.getElementById('input-nombre');
     const inputDuena = document.getElementById('input-duena');
     const inputFirma = document.getElementById('input-firma');
@@ -56,19 +53,18 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Lógica para la lluvia de corazones y estrellas
     function crearElementoCaida() {
         const el = document.createElement('div');
         el.classList.add('corazon-caida');
         const iconos = ['💖', '💫', '✨', '🌸', '❤️'];
         el.innerHTML = iconos[Math.floor(Math.random() * iconos.length)];
         el.style.left = Math.random() * 100 + 'vw';
-        el.style.animationDuration = Math.random() * 3 + 2 + 's'; // Entre 2 y 5 seg
+        el.style.animationDuration = Math.random() * 3 + 2 + 's';
         el.style.opacity = Math.random();
         el.style.fontSize = Math.random() * 20 + 15 + 'px';
         document.body.appendChild(el);
         setTimeout(() => el.remove(), 5000);
     }
 
-    setInterval(crearElementoCaida, 400); // Crea uno cada 400ms
+    setInterval(crearElementoCaida, 400);
 });
