@@ -18,9 +18,8 @@ document.addEventListener('DOMContentLoaded', function() {
     document.addEventListener('keydown', iniciarMusica);
 
     musica.addEventListener('error', function() {
-        console.error("No se pudo encontrar el archivo: música/cancion.mp3");
-        alert("No se encontró el archivo de música en la carpeta 'música'. Verifica el nombre.");
-    });
+    console.error("No se pudo encontrar el archivo: musica/cancion.mp3"); // SIN TILDE
+    alert("No se encontró el archivo de música.");
 
     document.querySelectorAll('img').forEach(img => {
         img.addEventListener('error', function() {
