@@ -1,69 +1,30 @@
-document.addEventListener('DOMContentLoaded', function() {
-    const musica = document.getElementById('musicaFondo');
-    musica.volume = 0.5;
+const contenedor = document.getElementById('emojis-container');
+const corazones = ['❤️', '💖', '💘', '💕', '💓', '💝', '💞', '✨', '🌹', '🥰', '🫶'];
 
-    const iniciarMusica = () => {
-        musica.play().then(() => {
-            console.log("Música iniciada correctamente");
-            document.removeEventListener('click', iniciarMusica);
-            document.removeEventListener('touchstart', iniciarMusica);
-            document.removeEventListener('keydown', iniciarMusica);
-        }).catch(err => {
-            console.warn("El navegador bloqueó el audio. Esperando clic del usuario.");
-        });
-    };
+function crearEmoji() {
+    const emoji = document.createElement('div');
+    emoji.classList.add('emoji');
 
-    document.addEventListener('click', iniciarMusica);
-    document.addEventListener('touchstart', iniciarMusica);
-    document.addEventListener('keydown', iniciarMusica);
+    // Emoji aleatorio
+    emoji.textContent = corazones[Math.floor(Math.random() * corazones.length)];
 
-    musica.addEventListener('error', function() {
-    console.error("No se pudo encontrar el archivo: musica/cancion.mp3"); // SIN TILDE
-    alert("No se encontró el archivo de música.");
+    // Posición horizontal aleatoria
+    const posX = Math.random() * window.innerWidth;
+    emoji.style.left = posX + 'px';
 
-    document.querySelectorAll('img').forEach(img => {
-        img.addEventListener('error', function() {
-            console.error("Error: No se encontró la imagen en: " + this.src);
-            this.style.backgroundColor = "#ff4d6d";
-        });
-    });
+    // Duración de caída (entre 4 y 7 segundos)
+    const duracion = 4 + Math.random() * 3;
+    emoji.style.animationDuration = duracion + 's';
 
-    const inputNombre = document.getElementById('input-nombre');
-    const inputDuena = document.getElementById('input-duena');
-    const inputFirma = document.getElementById('input-firma');
-    
-    const previewNombre = document.getElementById('preview-nombre');
-    const previewDuena = document.getElementById('preview-duena');
-    const previewFirma = document.getElementById('preview-firma');
+    // Tamaño aleatorio
+    const tamano = 1.4 + Math.random() * 1.6;
+    emoji.style.fontSize = tamano + 'rem';
 
-    if(inputNombre) {
-        inputNombre.addEventListener('input', function(e) {
-            previewNombre.textContent = e.target.value;
-        });
-    }
-    if(inputDuena) {
-        inputDuena.addEventListener('input', function(e) {
-            previewDuena.textContent = e.target.value;
-        });
-    }
-    if(inputFirma) {
-        inputFirma.addEventListener('input', function(e) {
-            previewFirma.textContent = e.target.value;
-        });
-    }
+    contenedor.appendChild(emoji);
 
-    function crearElementoCaida() {
-        const el = document.createElement('div');
-        el.classList.add('corazon-caida');
-        const iconos = ['💖', '💫', '✨', '🌸', '❤️'];
-        el.innerHTML = iconos[Math.floor(Math.random() * iconos.length)];
-        el.style.left = Math.random() * 100 + 'vw';
-        el.style.animationDuration = Math.random() * 3 + 2 + 's';
-        el.style.opacity = Math.random();
-        el.style.fontSize = Math.random() * 20 + 15 + 'px';
-        document.body.appendChild(el);
-        setTimeout(() => el.remove(), 5000);
-    }
+    // Eliminar después de caer
+    setTimeout(() => emoji.remove(), duracion * 1000);
+}
 
-    setInterval(crearElementoCaida, 400);
-});
+// Crear nuevo emoji cada 250ms
+setInterval(crearEmoji, 250);
