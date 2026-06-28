@@ -57,7 +57,7 @@ function crearEmoji() {
 setInterval(crearEmoji, 300);
 
 
-// --- Lógica de Escritura Interactiva Real en Pantalla ---
+// --- Lógica de Escritura Limpia e Interactiva ---
 const inputYo = document.getElementById('inputYo');
 const inputNovia = document.getElementById('inputNovia');
 const inputFirma = document.getElementById('inputFirma');
@@ -66,15 +66,15 @@ const txtYo = document.getElementById('txtYo');
 const txtNovia = document.getElementById('txtNovia');
 const txtFirma = document.getElementById('txtFirma');
 
-// Sincronización inmediata letra por letra
+// Imprime únicamente el valor puro escrito
 inputYo.addEventListener('input', () => {
-    txtYo.textContent = "Yo: " + inputYo.value;
+    txtYo.textContent = inputYo.value;
 });
 
 inputNovia.addEventListener('input', () => {
-    txtNovia.textContent = "Mi novia: " + inputNovia.value;
+    txtNovia.textContent = inputNovia.value;
 });
 
 inputFirma.addEventListener('input', () => {
-    txtFirma.textContent = "Firma: " + inputFirma.value;
+    txtFirma.textContent = inputFirma.value;
 });
