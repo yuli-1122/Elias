@@ -1,30 +1,36 @@
-const contenedor = document.getElementById('emojis-container');
-const corazones = ['❤️', '💖', '💘', '💕', '💓', '💝', '💞', '✨', '🌹', '🥰', '🫶'];
+// Activar o pausar la música
+const musica = document.getElementById('musica');
+const botonMusica = document.getElementById('btnMusica');
+
+botonMusica.addEventListener('click', () => {
+    if (musica.paused) {
+        musica.play().catch(() => {});
+        botonMusica.textContent = "🔇 Pausar música";
+    } else {
+        musica.pause();
+        botonMusica.textContent = "🎵 Activar música";
+    }
+});
+
+// Generar lluvia de emojis
+const contenedorEmojis = document.getElementById('emojis-container');
+const emojis = ['❤️', '💖', '💘', '💕', '💓', '🥰', '✨'];
 
 function crearEmoji() {
-    const emoji = document.createElement('div');
-    emoji.classList.add('emoji');
+    const elemento = document.createElement('div');
+    elemento.classList.add('emoji');
+    elemento.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+    
+    // Posición y velocidad aleatoria
+    elemento.style.left = Math.random() * 100 + 'vw';
+    elemento.style.animationDuration = (Math.random() * 3 + 3) + 's';
+    elemento.style.fontSize = (Math.random() * 1.5 + 1.5) + 'rem';
 
-    // Emoji aleatorio
-    emoji.textContent = corazones[Math.floor(Math.random() * corazones.length)];
+    contenedorEmojis.appendChild(elemento);
 
-    // Posición horizontal aleatoria
-    const posX = Math.random() * window.innerWidth;
-    emoji.style.left = posX + 'px';
-
-    // Duración de caída (entre 4 y 7 segundos)
-    const duracion = 4 + Math.random() * 3;
-    emoji.style.animationDuration = duracion + 's';
-
-    // Tamaño aleatorio
-    const tamano = 1.4 + Math.random() * 1.6;
-    emoji.style.fontSize = tamano + 'rem';
-
-    contenedor.appendChild(emoji);
-
-    // Eliminar después de caer
-    setTimeout(() => emoji.remove(), duracion * 1000);
+    // Eliminar después de que termine la animación
+    setTimeout(() => elemento.remove(), 6000);
 }
 
-// Crear nuevo emoji cada 250ms
+// Crear un nuevo emoji cada 250ms
 setInterval(crearEmoji, 250);
