@@ -51,7 +51,7 @@ body {
 
 /* Contenedor principal tipo carta */
 .carta {
-    max-width: 600px;
+    max-width: 650px;
     margin: 0 auto;
     background: #fffdfb;
     padding: 40px 30px;
@@ -71,7 +71,7 @@ body {
 
 .cabecera h1 {
     font-family: 'Dancing Script', cursive;
-    font-size: 2.8rem;
+    font-size: 3rem;
     color: #e64970;
     margin-bottom: 10px;
 }
@@ -85,8 +85,8 @@ body {
 /* Tarjetas tipo Polaroid */
 .tarjeta-polaroid {
     background: #ffffff;
-    padding: 15px 15px 25px 15px;
-    margin-bottom: 45px;
+    padding: 20px 20px 30px 20px;
+    margin-bottom: 50px;
     border-radius: 12px;
     box-shadow: 0 5px 20px rgba(150, 80, 100, 0.12);
     text-align: center;
@@ -102,19 +102,21 @@ body {
     width: 100%;
     height: auto;
     border-radius: 6px;
-    margin-bottom: 18px;
+    margin-bottom: 22px;
     display: block;
 }
 
 .texto-tarjeta {
     font-family: 'Dancing Script', cursive;
-    font-size: 1.4rem;
+    font-size: 1.5rem;
     color: #7a3b58;
-    line-height: 1.5;
+    line-height: 1.6;
     padding: 0 10px;
+    text-align: justify;
+    text-justify: inter-word;
 }
 
-/* Formulario Limpio e Independiente */
+/* Formulario Limpio */
 .formulario-licencia {
     background: #fff5f7;
     padding: 20px;
@@ -122,7 +124,6 @@ body {
     margin-bottom: 25px;
     text-align: left;
     border: 1px dashed #ffb3c6;
-    box-shadow: inset 0 2px 4px rgba(0,0,0,0.02);
 }
 
 .formulario-licencia h3 {
@@ -153,7 +154,6 @@ body {
     font-family: 'Poppins', sans-serif;
     outline: none;
     font-size: 0.9rem;
-    transition: all 0.2s ease;
 }
 
 .grupo-input input:focus {
@@ -161,61 +161,60 @@ body {
     box-shadow: 0 0 6px rgba(255, 107, 139, 0.25);
 }
 
-/* Contenedor Inteligente para Textos sobre la Foto */
+/* Contenedor Fijo para Textos sobre la Foto */
 .contenedor-imagen-bloque {
     position: relative;
     width: 100%;
-    display: inline-block;
+    margin-bottom: 22px;
 }
 
 .imagen-licencia-base {
     width: 100%;
     height: auto;
     display: block;
+    border-radius: 6px;
 }
 
-/* Capa transparente posicionada perfectamente sobre la imagen */
+/* Caja contenedora exacta de textos dinámicos */
 .capa-textos-licencia {
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    padding: 10% 12%; /* Espaciado proporcional interno */
+    top: 22%;
+    left: 12%;
+    width: 76%;
+    height: 60%;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     text-align: left;
-    pointer-events: none; /* Permite clicks pasantes si se requiere */
+    pointer-events: none;
 }
 
-/* Letras negras dinámicas */
-.texto-dinamico {
+.renglon-texto {
     font-family: 'Poppins', sans-serif;
     font-size: 1.2rem;
     font-weight: 600;
-    color: #000000; /* Negro absoluto */
-    margin-bottom: 4%;
-    text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.8); /* Legibilidad extra */
+    color: #000000;
+    margin-bottom: 8%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
-/* Firma roja dinámica */
-.texto-dinamico-firma {
+.renglon-firma {
     font-family: 'Dancing Script', cursive;
-    font-size: 1.7rem;
+    font-size: 1.9rem;
     font-weight: 700;
-    color: #d62839; /* Rojo absoluto */
+    color: #d62839;
     margin-top: 2%;
-    text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.8);
+    white-space: nowrap;
 }
 
-/* Emojis que caen */
+/* Emojis */
 .emoji {
     position: absolute;
     font-size: 2rem;
     animation: caer 5s linear forwards;
     user-select: none;
-    will-change: transform, opacity;
 }
 
 @keyframes caer {
@@ -224,13 +223,12 @@ body {
     100% { transform: translateY(110vh) rotate(360deg); opacity: 0; }
 }
 
-/* Adaptabilidad total para móviles */
+/* Ajustes Responsivos Completos */
 @media (max-width: 480px) {
     .carta { padding: 25px 15px; }
-    .cabecera h1 { font-size: 2.2rem; }
-    .texto-tarjeta { font-size: 1.2rem; }
-    .texto-dinamico { font-size: 0.85rem; margin-bottom: 2%; }
-    .texto-dinamico-firma { font-size: 1.2rem; }
-    .formulario-licencia { padding: 12px; }
-    .grupo-input label { width: 75px; font-size: 0.8rem; }
+    .cabecera h1 { font-size: 2.4rem; }
+    .texto-tarjeta { font-size: 1.3rem; }
+    .capa-textos-licencia { top: 18%; left: 10%; width: 80%; }
+    .renglon-texto { font-size: 0.85rem; margin-bottom: 6%; }
+    .renglon-firma { font-size: 1.3rem; margin-top: 0; }
 }
