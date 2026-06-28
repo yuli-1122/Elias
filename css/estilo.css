@@ -70,10 +70,11 @@ body {
 }
 
 .cabecera h1 {
-    font-family: 'Dancing Script', cursive;
-    font-size: 3rem;
+    font-weight: 700;
+    font-size: 2.5rem;
     color: #e64970;
     margin-bottom: 10px;
+    letter-spacing: -0.5px;
 }
 
 .subtitulo {
@@ -106,10 +107,12 @@ body {
     display: block;
 }
 
+/* Cambio: Letra normal despegada, limpia y legible para los textos largos */
 .texto-tarjeta {
-    font-family: 'Dancing Script', cursive;
-    font-size: 1.5rem;
-    color: #7a3b58;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.05rem;
+    font-weight: 400;
+    color: #5a2d44;
     line-height: 1.6;
     padding: 0 10px;
     text-align: justify;
@@ -170,11 +173,11 @@ body {
     border-radius: 6px;
 }
 
-/* Caja de textos movida a la derecha (mitad de la foto) */
+/* Capa de texto a la derecha/mitad de la foto */
 .capa-textos-licencia {
     position: absolute;
     top: 22%;
-    left: 42%; /* Movido más a la derecha hacia el centro */
+    left: 42%; 
     width: 50%;
     height: 60%;
     display: flex;
@@ -184,23 +187,25 @@ body {
     pointer-events: none;
 }
 
+/* Letras de molde imprenta para el rellenado */
 .renglon-texto {
     font-family: 'Poppins', sans-serif;
     font-size: 1.15rem;
     font-weight: 600;
-    color: #000000; /* Letra de escritura negra */
+    color: #000000; 
     margin-bottom: 9.5%;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
 }
 
+/* Cambio: Firma manuscrita de molde (despegada) */
 .renglon-firma {
-    font-family: 'Dancing Script', cursive;
-    font-size: 1.8rem;
-    font-weight: 700;
-    color: #d62839; /* Firma roja */
-    margin-top: 3%;
+    font-family: 'Patrick Hand', cursive;
+    font-size: 2.1rem;
+    font-weight: 400;
+    color: #d62839; 
+    margin-top: 1%;
     white-space: nowrap;
 }
 
@@ -221,9 +226,9 @@ body {
 /* Ajustes Responsivos Móviles */
 @media (max-width: 480px) {
     .carta { padding: 25px 15px; }
-    .cabecera h1 { font-size: 2.4rem; }
-    .texto-tarjeta { font-size: 1.3rem; }
+    .cabecera h1 { font-size: 2rem; }
+    .texto-tarjeta { font-size: 0.95rem; }
     .capa-textos-licencia { top: 18%; left: 42%; width: 52%; }
     .renglon-texto { font-size: 0.8rem; margin-bottom: 8.5%; }
-    .renglon-firma { font-size: 1.2rem; margin-top: 1%; }
+    .renglon-firma { font-size: 1.4rem; margin-top: 0%; }
 }
