@@ -98,7 +98,7 @@ body {
     transform: translateY(-5px);
 }
 
-.tarjeta-polaroid img {
+.tarjeta-polaroid img, .contenedor-canvas canvas {
     width: 100%;
     height: auto;
     border-radius: 6px;
@@ -114,38 +114,53 @@ body {
     padding: 0 10px;
 }
 
-/* Estilo para ajustar la encuesta encima de la imagen */
-.contenedor-imagen-encuesta {
-    position: relative;
-    width: 100%;
-}
-
-.encuesta-superpuesta {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 80%;
-    text-align: left;
-    z-index: 20;
-    background: rgba(255, 255, 255, 0.85);
+/* Estilos del nuevo Formulario sobre la Licencia */
+.formulario-licencia {
+    background: #fff0f3;
     padding: 15px;
     border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    margin-bottom: 15px;
+    text-align: left;
+    border: 1px solid #ffd6e0;
 }
 
-.texto-encuesta {
-    font-family: 'Poppins', sans-serif;
-    font-size: 0.95rem;
+.formulario-licencia h3 {
+    font-size: 1rem;
+    color: #e64970;
+    margin-bottom: 12px;
+}
+
+.grupo-input {
+    display: flex;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+.grupo-input label {
+    width: 80px;
+    font-size: 0.9rem;
     font-weight: 500;
-    color: #000000; /* Letra Negra */
-    margin-bottom: 10px;
+    color: #5a2d44;
 }
 
-.texto-encuesta.firma {
-    color: #d62839; /* Firma Roja */
-    font-weight: 600;
-    margin-bottom: 0;
+.grupo-input input {
+    flex: 1;
+    padding: 6px 10px;
+    border: 1px solid #ffd6e0;
+    border-radius: 6px;
+    font-family: 'Poppins', sans-serif;
+    outline: none;
+    font-size: 0.85rem;
+}
+
+.grupo-input input:focus {
+    border-color: #ff6b8b;
+    box-shadow: 0 0 4px rgba(255, 107, 139, 0.2);
+}
+
+.contenedor-canvas {
+    width: 100%;
+    position: relative;
 }
 
 /* Estilo para los emojis que caen */
@@ -167,7 +182,7 @@ body {
     }
     100% {
         transform: translateY(110vh) rotate(360deg);
-        opacity: 0; /* Desaparecen gradualmente antes de tocar fondo */
+        opacity: 0;
     }
 }
 
@@ -183,15 +198,5 @@ body {
 
     .texto-tarjeta {
         font-size: 1.2rem;
-    }
-
-    .encuesta-superpuesta {
-        width: 90%;
-        padding: 10px;
-    }
-
-    .texto-encuesta {
-        font-size: 0.8rem;
-        margin-bottom: 6px;
     }
 }
