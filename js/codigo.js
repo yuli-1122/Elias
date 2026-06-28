@@ -11,7 +11,7 @@ btnMusica.addEventListener('click', () => {
                 btnMusica.textContent = '🔇 Pausar música';
             })
             .catch(error => {
-                console.log("El navegador bloqueó la reproducción:", error);
+                console.log("El navegador bloqueó la música:", error);
             });
     } else {
         musica.pause();
@@ -57,49 +57,24 @@ function crearEmoji() {
 setInterval(crearEmoji, 300);
 
 
-// --- Lógica Dinámica de la Licencia en Canvas ---
-const canvas = document.getElementById('canvasLicencia');
-const ctx = canvas.getContext('2d');
-
-const imgLicencia = new Image();
-imgLicencia.src = 'img/Licencia_h.png'; // Ruta de tu imagen base
-
+// --- Lógica de Escritura Interactiva Real en Pantalla ---
 const inputYo = document.getElementById('inputYo');
 const inputNovia = document.getElementById('inputNovia');
 const inputFirma = document.getElementById('inputFirma');
 
-// Redibujar el Canvas con los textos actuales
-function dibujarLicencia() {
-    // Definir tamaño nativo del canvas basado en la imagen
-    canvas.width = imgLicencia.naturalWidth || 800;
-    canvas.height = imgLicencia.naturalHeight || 600;
+const txtYo = document.getElementById('txtYo');
+const txtNovia = document.getElementById('txtNovia');
+const txtFirma = document.getElementById('txtFirma');
 
-    // Dibujar la imagen de fondo
-    ctx.drawImage(imgLicencia, 0, 0, canvas.width, canvas.height);
+// Escuchar cambios de escritura y replicar al instante encima de la foto
+inputYo.addEventListener('input', () => {
+    txtYo.textContent = "Yo: " + inputYo.value;
+});
 
-    // Ajustes de texto
-    ctx.textBaseline = 'middle';
+inputNovia.addEventListener('input', () => {
+    txtNovia.textContent = "Mi novia: " + inputNovia.value;
+});
 
-    // 1. Escribir "Yo" (Letra negra)
-    ctx.font = 'bold 24px "Poppins", sans-serif';
-    ctx.fillStyle = '#000000';
-    ctx.fillText("Yo: " + inputYo.value, canvas.width * 0.15, canvas.height * 0.35);
-
-    // 2. Escribir "Mi novia" (Letra negra)
-    ctx.fillText("Mi novia: " + inputNovia.value, canvas.width * 0.15, canvas.height * 0.48);
-
-    // 3. Escribir "Firma" (Letra roja y estilo cursivo elegante)
-    ctx.font = 'bold 32px "Dancing Script", cursive';
-    ctx.fillStyle = '#d62839';
-    ctx.fillText("Firma: " + inputFirma.value, canvas.width * 0.15, canvas.height * 0.65);
-}
-
-// Escuchar cuando la imagen cargue por primera vez
-imgLicencia.onload = () => {
-    dibujarLicencia();
-};
-
-// Actualizar en tiempo real cuando el usuario escribe en los inputs
-inputYo.addEventListener('input', dibujarLicencia);
-inputNovia.addEventListener('input', dibujarLicencia);
-inputFirma.addEventListener('input', dibujarLicencia);
+inputFirma.addEventListener('input', () => {
+    txtFirma.textContent = "Firma: " + inputFirma.value;
+});
