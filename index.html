@@ -48,28 +48,36 @@
                 <p class="texto-tarjeta">Te elijo a ti hoy, mañana y siempre, porque contigo todo es mejor y más bonito 🥰</p>
             </div>
 
-            <!-- Tarjeta 3: Licencia con Formulario Dinámico -->
+            <!-- Tarjeta 3: Licencia con Formulario Corregido -->
             <div class="tarjeta-polaroid tarjeta-encuesta">
-                <!-- Formulario de edición arriba de la imagen -->
+                
+                <!-- Formulario interactivo arriba -->
                 <div class="formulario-licencia">
                     <h3>✍️ Rellena nuestra Licencia de Amor:</h3>
                     <div class="grupo-input">
                         <label>Yo:</label>
-                        <input type="text" id="inputYo" placeholder="Tu nombre">
+                        <input type="text" id="inputYo" placeholder="Escribe tu nombre...">
                     </div>
                     <div class="grupo-input">
                         <label>Mi novia:</label>
-                        <input type="text" id="inputNovia" placeholder="Su nombre">
+                        <input type="text" id="inputNovia" placeholder="Escribe su nombre...">
                     </div>
                     <div class="grupo-input">
                         <label>Firma:</label>
-                        <input type="text" id="inputFirma" placeholder="Firma aquí">
+                        <input type="text" id="inputFirma" placeholder="Firma aquí...">
                     </div>
                 </div>
 
-                <!-- Lienzo dinámico donde se fusiona la imagen y el texto -->
-                <div class="contenedor-canvas">
-                    <canvas id="canvasLicencia"></canvas>
+                <!-- Contenedor visual: Imagen real + textos encima -->
+                <div class="contenedor-imagen-bloque">
+                    <img src="img/Licencia_h.png" alt="Licencia de amor" class="imagen-licencia-base">
+                    
+                    <!-- Textos dinámicos que se posicionan encima de la foto -->
+                    <div class="capa-textos-licencia">
+                        <p class="texto-dinamico" id="txtYo">Yo: </p>
+                        <p class="texto-dinamico" id="txtNovia">Mi novia: </p>
+                        <p class="texto-dinamico-firma" id="txtFirma">Firma: </p>
+                    </div>
                 </div>
                 
                 <p class="texto-tarjeta">Te amo con todo mi ser, eres mi sueño hecho realidad y mi lugar favorito en el mundo ❤️♾️</p>
