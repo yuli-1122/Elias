@@ -4,51 +4,66 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>3 de Amores ❤️</title>
+    <!-- Fuentes elegantes de Google -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500;700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/estilo.css">
 </head>
 <body>
 
-    <!-- Música de fondo -->
-    <audio id="musica" autoplay loop>
-        <source src="musica/cancion.mp3" type="audio/mpeg">
-        Tu navegador no soporta audio.
-    
+    <!-- Lluvia de emojis - Fondo -->
+    <div id="emojis-container"></div>
 
-    <!-- Botón para activar música -->
-    <button id="btnMusica" style="position: fixed; top: 20px; right: 20px; z-index: 20; padding: 10px 15px; border-radius: 20px; border: none; background: white; color: #ff758c; font-weight: bold; cursor: pointer; box-shadow: 0 2px 8px rgba(0,0,0,0.2);">
+    <!-- Botón flotante de música -->
+    <button id="btnMusica" class="boton-musica">
         🎵 Activar música
     </button>
 
-    <!-- Contenedor de emojis que caen -->
-    <div id="emojis-container"></div>
+    <!-- Reproductor de audio oculto -->
+    <audio id="musica" loop>
+        <source src="musica/cancion.mp3" type="audio/mpeg">
+        Tu navegador no soporta el audio.
+    
 
-    <!-- Contenido principal -->
-    <div class="contenido">
-        <header>
+    <!-- Contenedor principal tipo carta -->
+    <div class="carta">
+        <header class="cabecera">
             <h1>¡Feliz 3 de Amores! ❤️</h1>
-            <p>Un regalo hecho con todo mi corazón para ti...</p>
+            <p class="subtitulo">Hecho con todo mi corazón para ti...</p>
         </header>
 
-        <main>
-            <div class="foto-texto">
+        <main class="contenido-carta">
+
+            <!-- Tarjeta 1 -->
+            <div class="tarjeta-polaroid">
                 <img src="img/foto_1.png" alt="Nuestro amor">
-                <p class="mensaje">Eres lo más bonito que me ha pasado en la vida, cada día a tu lado es un regalo ✨</p>
+                <p class="texto-tarjeta">Eres lo más bonito que me ha pasado en la vida, cada día a tu lado es un regalo ✨</p>
             </div>
 
-            <div class="foto-texto">
+            <!-- Tarjeta 2 -->
+            <div class="tarjeta-polaroid">
                 <img src="img/2.png" alt="Recuerdo especial">
-                <p class="mensaje">Te elijo a ti hoy, mañana y siempre, porque contigo todo es mejor y más bonito 🥰</p>
+                <p class="texto-tarjeta">Te elijo a ti hoy, mañana y siempre, porque contigo todo es mejor y más bonito 🥰</p>
             </div>
 
-            <div class="foto-texto">
-                <img src="img/Licencia_h.png" alt="Mi persona favorita">
-                <p class="mensaje">Te amo con todo mi ser, eres mi sueño hecho realidad y mi lugar favorito en el mundo ❤️♾️</p>
+            <!-- Tarjeta 3: Licencia con encuesta -->
+            <div class="tarjeta-polaroid tarjeta-encuesta">
+                <img src="img/Licencia_h.png" alt="Licencia de amor">
+                <div class="encuesta-superpuesta">
+                    <p class="texto-encuesta">Yo: _________________________</p>
+                    <p class="texto-encuesta">Mi loba: ____________________</p>
+                    <p class="texto-encuesta firma">Firma: ____________________</p>
+                </div>
+                <p class="texto-tarjeta">Te amo con todo mi ser, eres mi sueño hecho realidad y mi lugar favorito en el mundo ❤️♾️</p>
             </div>
 
-            <div class="foto-texto">
+            <!-- Tarjeta 4 -->
+            <div class="tarjeta-polaroid">
                 <img src="img/Licencia_m.png" alt="Juntos siempre">
-                <p class="mensaje">Gracias por ser tú, por quererme y por estar aquí. Eres todo lo que siempre quise 🫶</p>
+                <p class="texto-tarjeta">Gracias por ser tú, por quererme y por estar aquí. Eres todo lo que siempre quise 🫶</p>
             </div>
+
         </main>
     </div>
 
