@@ -176,9 +176,9 @@ body {
 /* Capa de texto a la derecha/mitad de la foto */
 .capa-textos-licencia {
     position: absolute;
-    top: 22%;
-    left: 42%; 
-    width: 50%;
+    top: 22%;    /* Si los textos salen muy arriba, aumenta este número (ej. 25%). Si salen muy abajo, bájalo. */
+    left: 42%;   /* Si quieres moverlos más a la derecha, aumenta este número (ej. 45%). Si los quieres a la izquierda, bájalo. */
+    width: 50%;  /* Es el ancho del espacio donde se escribe; si el texto se corta, puedes subirlo a 55%. */
     height: 60%;
     display: flex;
     flex-direction: column;
