@@ -66,7 +66,7 @@ const txtYo = document.getElementById('txtYo');
 const txtNovia = document.getElementById('txtNovia');
 const txtFirma = document.getElementById('txtFirma');
 
-// Escuchar cambios de escritura y replicar al instante encima de la foto
+// Sincronización inmediata letra por letra
 inputYo.addEventListener('input', () => {
     txtYo.textContent = "Yo: " + inputYo.value;
 });
