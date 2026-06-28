@@ -1,36 +1,64 @@
-// Activar o pausar la música
+// --- Lógica de la música ---
 const musica = document.getElementById('musica');
-const botonMusica = document.getElementById('btnMusica');
+const btnMusica = document.getElementById('btnMusica');
+let reproduciendo = false;
 
-botonMusica.addEventListener('click', () => {
-    if (musica.paused) {
-        musica.play().catch(() => {});
-        botonMusica.textContent = "🔇 Pausar música";
+// Al hacer clic en el botón
+btnMusica.addEventListener('click', () => {
+    if (!reproduciendo) {
+        musica.play()
+            .then(() => {
+                reproduciendo = true;
+                btnMusica.textContent = '🔇 Pausar música';
+            })
+            .catch(error => {
+                console.log("El navegador bloqueó la reproducción automática:", error);
+            });
     } else {
         musica.pause();
-        botonMusica.textContent = "🎵 Activar música";
+        reproduciendo = false;
+        btnMusica.textContent = '🎵 Activar música';
     }
 });
 
-// Generar lluvia de emojis
+// También activar música al primer clic en cualquier parte de la página
+document.addEventListener('click', () => {
+    if (!reproduciendo) {
+        musica.play().catch(() => {});
+    }
+}, { once: true });
+
+
+// --- Lógica de la lluvia de emojis ---
 const contenedorEmojis = document.getElementById('emojis-container');
-const emojis = ['❤️', '💖', '💘', '💕', '💓', '🥰', '✨'];
+const listaEmojis = ['❤️', '🧡', '💛', '💚', '💙', '💜', '🖤', '🤍', '🤎', '💖', '💗', '💓', '💞', '💕', '💝', '🥰', '😍', '🌹', '✨', '💫'];
 
 function crearEmoji() {
-    const elemento = document.createElement('div');
-    elemento.classList.add('emoji');
-    elemento.textContent = emojis[Math.floor(Math.random() * emojis.length)];
-    
-    // Posición y velocidad aleatoria
-    elemento.style.left = Math.random() * 100 + 'vw';
-    elemento.style.animationDuration = (Math.random() * 3 + 3) + 's';
-    elemento.style.fontSize = (Math.random() * 1.5 + 1.5) + 'rem';
+    const emoji = document.createElement('div');
+    emoji.classList.add('emoji');
 
-    contenedorEmojis.appendChild(elemento);
+    // Emoji aleatorio
+    emoji.textContent = listaEmojis[Math.floor(Math.random() * listaEmojis.length)];
 
-    // Eliminar después de que termine la animación
-    setTimeout(() => elemento.remove(), 6000);
+    // Posición horizontal aleatoria
+    const posicionX = Math.random() * 100;
+    emoji.style.left = `${posicionX}vw`;
+
+    // Tamaño aleatorio
+    const tamaño = Math.random() * 1.5 + 1.2;
+    emoji.style.fontSize = `${tamaño}rem`;
+
+    // Duración de caída aleatoria
+    const duracion = Math.random() * 3 + 4;
+    emoji.style.animationDuration = `${duracion}s`;
+
+    contenedorEmojis.appendChild(emoji);
+
+    // Eliminar el emoji después de que termine la animación
+    setTimeout(() => {
+        emoji.remove();
+    }, duracion * 1000);
 }
 
-// Crear un nuevo emoji cada 250ms
-setInterval(crearEmoji, 250);
+// Crear emojis cada 300ms
+setInterval(crearEmoji, 300);
